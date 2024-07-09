@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Shoes Shop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        select, input[type="submit"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        </style>
+    </head>
+    <body>
+        <form action="MainController">
+                          <input type="submit" name="action" value="Logout" />  
+                </form>
+        <div class="container">
+            <h1>Welcome to Shoes Shop</h1>
+        <form action="MainController" method="POST">
+            Select your shoes:<select name="shoes">
+                <option value="s001-Nike Air-100">Nike Air-100$</option>
+                <option value="s002-Nike Limited-500">Nike Limited-500$</option>
+                <option value="s003-Adidas-200">Adidas-200$</option>
+                <option value="s004-Bitis Hunter-50">Bitis Hunter-50$</option>
+            </select>
+            Quantity:<select name="quantity">
+                <option value="1">1 Items</option>
+                <option value="2">2 Items</option>
+                <option value="3">3 Items</option>
+                <option value="4">4 Items</option>
+                <option value="5">5 Items</option>
+                <option value="10">10 Items</option>
+            </select>
+            <input type="submit" name="action" value="Add"/>
+            <input type="submit" name="action" value="View"/>
+
+        </form>
+        </div>
+    </body>
+</html>

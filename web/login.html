@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .g-recaptcha {
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 49%;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Input your information: </h1>
+        <form id="form" action="MainController" method="POST">
+            User ID <input id="userID" type="text" name="userID" required/></br>
+            Password <input id="password" type="password" name="password" required/></br>
+            <div class="g-recaptcha" data-sitekey="6LedKpIpAAAAAK2H0oNWQBiqud3D4v9Pe8af3Kxi"></div>
+            <br/>
+            <input type="submit" name="action" value="Login"/>
+            <input type="reset" value="Reset"/>
+        </form>
+        <div id="error"></div>
+        </br>
+    </div>
+    <a href="MainController?action=Create_User_Page">Create User</a>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        window.onload = function(){
+            const form = document.getElementById("form");
+            const error = document.getElementById("error");
+
+            form.addEventListener("submit", function(event){
+    console.log("Form submitted");
+    const userID = document.getElementById("userID").value;
+    const password = document.getElementById("password").value;
+    const response = grecaptcha.getResponse();
+    if(userID === "" || password === "" || response === ""){
+        event.preventDefault();
+        error.innerHTML = "Please fill in all fields and check the reCAPTCHA";
+    }
+});
+        }
+    </script>
+</body>
+</html>
