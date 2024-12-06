@@ -14,7 +14,7 @@ Sao chép mã
 git clone https://github.com/voleducanh93/shoes-shop.git
 Set up the SQL Server database using the provided script.
 Update database connection details in the project.
-Deploy the app on Apache Tomcat and access it at http://localhost:8080/shoes-shop.
+
 Author
 Vo Le Duc Anh
 
